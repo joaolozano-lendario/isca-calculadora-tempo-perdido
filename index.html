@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THP24FQT');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '800254155650849');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+    <title>Calculadora do Tempo Perdido | Academia Lendár[IA]</title>
+    <meta name="description" content="Quanto custa você fazer trabalho de funcionário? A calculadora brutal que revela o preço do seu tempo mal usado." />
+<!-- Open Graph -->    <meta property="og:title" content="Calculadora do Tempo Perdido | Academia Lendár[IA]" />    <meta property="og:description" content="Quanto custa você fazer trabalho de funcionário? A calculadora brutal que revela o preço do seu tempo mal usado." />    <meta property="og:image" content="https://academialendaria.ai/og-calculadora-tempo.jpg" />    <meta property="og:url" content="https://isca-calculadora-tempo-perdido.vercel.app/" />    <meta property="og:type" content="website" />    <meta property="og:locale" content="pt_BR" />    <!-- Twitter Card -->    <meta name="twitter:card" content="summary_large_image" />    <meta name="twitter:title" content="Calculadora do Tempo Perdido | Academia Lendár[IA]" />    <meta name="twitter:description" content="Quanto custa você fazer trabalho de funcionário? A calculadora brutal que revela o preço do seu tempo mal usado." />    <meta name="twitter:image" content="https://academialendaria.ai/og-calculadora-tempo.jpg" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Academia Lendária Monochromatic Palette
+              'white-pure': '#FFFFFF',
+              'white-soft': '#F8F8F8',
+              'gray-100': '#E8E8E8',
+              'gray-200': '#D8D8D8',
+              'gray-300': '#B8B8B8',
+              'gray-400': '#888888',
+              'gray-500': '#646464',
+              'gray-600': '#484848',
+              'gray-700': '#323232',
+              'black-soft': '#242424',
+              'black-deep': '#161616',
+              'black-pure': '#000000',
+              // Semantic colors for status (minimal use)
+              'status-danger': '#DC2626',
+              'status-warning': '#D97706',
+              'status-success': '#059669'
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              serif: ['Source Serif Pro', 'Georgia', 'serif']
+            },
+            spacing: {
+              '18': '72px',
+              '22': '88px'
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-out forwards',
+              'slide-up': 'slideUp 0.6s ease-out forwards',
+              'count-up': 'countUp 2s ease-out forwards'
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' }
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              countUp: {
+                '0%': { opacity: '0', transform: 'scale(0.5)' },
+                '50%': { opacity: '1', transform: 'scale(1.1)' },
+                '100%': { opacity: '1', transform: 'scale(1)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google Fonts - Inter + Source Serif Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #FFFFFF;
+        color: #242424;
+        overflow-x: hidden;
+      }
+
+      /* Custom scrollbar - Minimal */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #F8F8F8;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #D8D8D8;
+        border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #B8B8B8;
+      }
+
+      /* Input styling */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      /* Range slider styling - Monochromatic */
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #E8E8E8;
+        border-radius: 4px;
+        outline: none;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 24px;
+        height: 24px;
+        background: #000000;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        background: #000000;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* Quote styling with Source Serif Pro */
+      .quote-text {
+        font-family: 'Source Serif Pro', Georgia, serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THP24FQT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Meta Pixel noscript -->
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=800254155650849&ev=PageView&noscript=1"
+    /></noscript>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
