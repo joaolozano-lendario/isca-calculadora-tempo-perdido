@@ -62,7 +62,7 @@ export default function ResultadoPage() {
 
   // Animate cost number
   useEffect(() => {
-    if (data && heroSection.isInView) {
+    if (data) {
       const duration = 2000
       const steps = 60
       const increment = data.custoAnual / steps

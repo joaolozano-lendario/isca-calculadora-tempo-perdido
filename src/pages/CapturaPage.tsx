@@ -74,8 +74,8 @@ export default function CapturaPage() {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-black-pure">
-            Quanto custa você fazer
-            <br />
+            Você trabalha 12 horas por dia.
+            <br /><span className="text-gray-400">Sua empresa fatura o mesmo.</span><br />
             <span className="text-gray-500">trabalho de funcionário?</span>
           </h1>
 

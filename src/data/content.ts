@@ -2,9 +2,9 @@
 // Conectado à Narrativa: O Dia que Não Rende
 
 export const heroContent = {
-  headline: 'Quanto custa você fazer trabalho de funcionário?',
-  subheadline: 'A calculadora brutal que revela o preço do seu tempo mal usado.',
-  cta: 'Calcular Meu Desperdício'
+  headline: 'Você trabalha 12 horas por dia. Sua empresa fatura o mesmo.',
+  subheadline: 'Descubra onde está o vazamento — e quanto está custando em reais.',
+  cta: 'Descobrir Quanto Estou Perdendo'
 }
 
 export const painPoints = [
@@ -155,18 +155,18 @@ export const cta = {
 
 export const socialProof = [
   {
-    quote: 'Recuperei 15 horas por semana automatizando respostas de FAQ com IA.',
-    author: 'Carlos M.',
-    role: 'CEO, Agência Digital'
+    quote: 'Descobri que perdia R$ 280k/ano respondendo as mesmas 15 perguntas. Criei um FAQ com IA e recuperei 18h/semana.',
+    author: 'Carlos Mendes',
+    role: 'Agência de Marketing, 47 funcionários, SP'
   },
   {
-    quote: 'Antes eu apagava incêndios o dia todo. Agora tenho sistema que previne 80% deles.',
-    author: 'Fernanda L.',
-    role: 'Diretora, E-commerce'
+    quote: 'A calculadora mostrou R$ 156k/ano em reuniões desnecessárias. Cortei 70% delas. Meu time agradeceu.',
+    author: 'Fernanda Lopes',
+    role: 'E-commerce de Moda, 23 funcionários, RJ'
   },
   {
-    quote: 'A conta que essa calculadora mostrou me fez agir. Em 3 meses deleguei metade do operacional.',
-    author: 'Ricardo S.',
-    role: 'Fundador, SaaS'
+    quote: 'Eu era o gargalo de tudo. Depois de ver o número, documentei os 10 processos mais perguntados. Saí de férias pela primeira vez em 3 anos.',
+    author: 'Ricardo Santos',
+    role: 'SaaS B2B, 31 funcionários, BH'
   }
 ]
