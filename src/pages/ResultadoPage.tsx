@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import {
   AlertTriangle,
   TrendingDown,
@@ -83,7 +83,7 @@ export default function ResultadoPage() {
   if (!data) {
     return (
       <div className="min-h-screen bg-white-pure text-black-soft flex items-center justify-center">
-        <p className="text-gray-500">Carregando resultados...</p>
+        <div className="text-center"><LogoDiamante className="w-16 h-16 mx-auto mb-6 text-black-pure" /><h2 className="text-2xl font-bold mb-4 text-black-pure">Resultado nao encontrado</h2><p className="text-gray-500 mb-8">Parece que voce acessou esta pagina diretamente.<br/>Complete a calculadora primeiro para ver seu resultado.</p><Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-black-pure text-white-pure rounded-lg hover:bg-black-deep transition-all">Fazer a Calculadora<ArrowRight className="w-5 h-5" /></Link></div>
       </div>
     )
   }
