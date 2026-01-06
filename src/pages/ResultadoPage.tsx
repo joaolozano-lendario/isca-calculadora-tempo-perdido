@@ -126,7 +126,7 @@ export default function ResultadoPage() {
           {/* Alert badge */}
           <div
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-white-soft mb-8 transition-all duration-700 ${
-              heroSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             } ${
               insightLevel === 'high' ? 'border-status-danger text-status-danger' :
               insightLevel === 'medium' ? 'border-status-warning text-status-warning' :
@@ -140,7 +140,7 @@ export default function ResultadoPage() {
           {/* Main headline */}
           <h1
             className={`text-3xl md:text-4xl font-bold mb-8 text-black-pure transition-all duration-700 delay-100 ${
-              heroSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Seu tempo operacional custa
@@ -149,7 +149,7 @@ export default function ResultadoPage() {
           {/* The big animated number */}
           <div
             className={`mb-8 transition-all duration-1000 delay-300 ${
-              heroSection.isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              true ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
             }`}
           >
             <span className="text-6xl md:text-8xl font-bold font-mono text-black-pure">
@@ -161,7 +161,7 @@ export default function ResultadoPage() {
           {/* Summary stats */}
           <div
             className={`grid grid-cols-3 gap-6 max-w-xl mx-auto transition-all duration-700 delay-500 ${
-              heroSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             <div className="text-center">
@@ -189,7 +189,7 @@ export default function ResultadoPage() {
           {/* Insight message */}
           <div
             className={`mt-12 p-6 rounded-lg border-l-4 bg-white-soft text-left transition-all duration-700 delay-700 ${
-              heroSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             } ${
               insightLevel === 'high' ? 'border-l-status-danger' :
               insightLevel === 'medium' ? 'border-l-status-warning' :
@@ -219,14 +219,14 @@ export default function ResultadoPage() {
         <div className="max-w-4xl mx-auto">
           <h2
             className={`text-2xl md:text-3xl font-bold text-center mb-4 text-black-pure transition-all duration-700 ${
-              breakdownSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Onde está vazando seu tempo
           </h2>
           <p
             className={`text-gray-500 text-center mb-12 transition-all duration-700 delay-100 ${
-              breakdownSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Detalhamento por tipo de atividade operacional
@@ -243,7 +243,7 @@ export default function ResultadoPage() {
                   <div
                     key={key}
                     className={`p-5 rounded-lg border border-gray-200 bg-white-pure transition-all duration-500 ${
-                      breakdownSection.isInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                      true ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
                     }`}
                     style={{ transitionDelay: `${200 + index * 100}ms` }}
                   >
@@ -286,14 +286,14 @@ export default function ResultadoPage() {
         <div className="max-w-4xl mx-auto">
           <h2
             className={`text-2xl md:text-3xl font-bold text-center mb-4 text-black-pure transition-all duration-700 ${
-              impactSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Se você recuperasse 50% desse tempo...
           </h2>
           <p
             className={`text-gray-500 text-center mb-12 transition-all duration-700 delay-100 ${
-              impactSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             Cenário conservador de otimização
@@ -302,7 +302,7 @@ export default function ResultadoPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div
               className={`p-6 rounded-lg border border-gray-200 bg-white-soft text-center transition-all duration-500 ${
-                impactSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '200ms' }}
             >
@@ -315,7 +315,7 @@ export default function ResultadoPage() {
 
             <div
               className={`p-6 rounded-lg border border-gray-200 bg-white-soft text-center transition-all duration-500 ${
-                impactSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '300ms' }}
             >
@@ -328,7 +328,7 @@ export default function ResultadoPage() {
 
             <div
               className={`p-6 rounded-lg border border-gray-200 bg-white-soft text-center transition-all duration-500 ${
-                impactSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: '400ms' }}
             >
@@ -342,7 +342,7 @@ export default function ResultadoPage() {
 
           <p
             className={`text-center text-gray-600 mt-8 text-lg transition-all duration-700 delay-500 ${
-              impactSection.isInView ? 'opacity-100' : 'opacity-0'
+              true ? 'opacity-100' : 'opacity-0'
             }`}
           >
             Isso são <span className="text-black-pure font-bold">{diasRecuperados} dias</span> que
@@ -359,14 +359,14 @@ export default function ResultadoPage() {
         <div className="max-w-4xl mx-auto">
           <h2
             className={`text-2xl md:text-3xl font-bold text-center mb-4 text-black-pure transition-all duration-700 ${
-              frameworkSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             {framework.title}
           </h2>
           <p
             className={`text-gray-500 text-center mb-12 transition-all duration-700 delay-100 ${
-              frameworkSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
             {framework.description}
@@ -379,7 +379,7 @@ export default function ResultadoPage() {
                 <div
                   key={ralo.number}
                   className={`p-6 rounded-lg border border-gray-200 bg-white-pure transition-all duration-500 ${
-                    frameworkSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                   style={{ transitionDelay: `${200 + index * 100}ms` }}
                 >
@@ -453,7 +453,7 @@ export default function ResultadoPage() {
       >
         <div
           className={`max-w-2xl mx-auto text-center transition-all duration-700 ${
-            actionSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
           <LogoDiamante className="w-16 h-16 mx-auto mb-8 text-white-pure" />
