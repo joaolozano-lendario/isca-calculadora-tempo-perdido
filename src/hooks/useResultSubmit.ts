@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 // URL da API proxy
-const API_URL = import.meta.env.VITE_API_URL || 'https://api-proxy-indol-tau.vercel.app'
+const API_URL = import.meta.env.VITE_API_URL || 'https://api-proxy-activecampaign.vercel.app'
 
 export interface ResultData {
   email: string
