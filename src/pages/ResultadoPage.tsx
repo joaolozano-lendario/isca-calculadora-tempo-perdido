@@ -18,6 +18,7 @@ import {
 import { useInView } from '../hooks/useInView'
 import { useResultSubmit, useLocalResultSubmit } from '../hooks/useResultSubmit'
 import { insights, framework, cta } from '../data/content'
+import { Footer } from '../components/Footer'
 
 interface ResultData {
   email: string
@@ -513,15 +514,7 @@ export default function ResultadoPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-200 text-center bg-white-pure">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <LogoDiamante className="w-6 h-6 text-black-pure" />
-          <span className="text-sm font-medium text-black-deep">Academia Lendária</span>
-        </div>
-        <p className="text-sm text-gray-400">
-          Transformando empresários em lendas.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

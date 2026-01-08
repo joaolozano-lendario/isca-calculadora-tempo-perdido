@@ -4,6 +4,7 @@ import { Clock, MessageCircle, Flame, UserMinus, ArrowRight, Calculator, User, M
 import { useInView } from '../hooks/useInView'
 import { useLeadCapture, useLocalLeadCapture } from '../hooks/useLeadCapture'
 import { heroContent, painPoints, socialProof } from '../data/content'
+import { Footer } from '../components/Footer'
 
 const iconMap = {
   clock: Clock,
@@ -380,15 +381,7 @@ export default function CapturaPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-200 text-center bg-white-pure">
-        <div className="flex items-center justify-center gap-2 mb-2">
-          <LogoDiamante className="w-6 h-6 text-black-pure" />
-          <span className="text-sm font-medium text-black-deep">Academia Lendária</span>
-        </div>
-        <p className="text-sm text-gray-400">
-          Transformando empresários em lendas.
-        </p>
-      </footer>
+      <Footer />
     </div>
   )
 }

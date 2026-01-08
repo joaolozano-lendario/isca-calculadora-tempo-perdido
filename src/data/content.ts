@@ -164,7 +164,7 @@ export const cta = {
   title: 'E se você recuperasse esse tempo em 48 horas?',
   description: 'Na Imersão Pratica de IA para Negocios, nosso time de especialistas implementa automações no seu negócio — junto com você. Sistema funcionando ou dinheiro de volta.',
   buttonText: 'QUERO IMPLEMENTAR IA NO MEU NEGOCIO',
-  buttonUrl: 'https://imersao.academialendaria.ai/'
+  buttonUrl: 'https://imersao.academialendaria.ai/?utm_source=calculadora&utm_medium=lp&utm_content=cta-resultado&utm_campaign=imersao-jan26&src=calculadora_lp'
 }
 
 // Social Proof - Dados REAIS da pesquisa (98 empresários)
