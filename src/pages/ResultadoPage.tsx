@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import {
   AlertTriangle,
@@ -16,6 +16,7 @@ import {
   Calendar
 } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
+import { useResultSubmit, useLocalResultSubmit } from '../hooks/useResultSubmit'
 import { insights, framework, cta } from '../data/content'
 
 interface ResultData {
@@ -41,6 +42,13 @@ export default function ResultadoPage() {
   const [data, setData] = useState<ResultData | null>(null)
   const [animatedCost, setAnimatedCost] = useState(0)
   const [showDetails, setShowDetails] = useState(false)
+  const hasSubmittedRef = useRef(false)
+
+  // Hook para enviar dados de qualificacao para ActiveCampaign
+  const isDev = import.meta.env.DEV
+  const { submitResult } = isDev
+    ? useLocalResultSubmit()
+    : useResultSubmit()
 
   const heroSection = useInView({ threshold: 0.1 })
   const breakdownSection = useInView({ threshold: 0.1 })
@@ -59,6 +67,33 @@ export default function ResultadoPage() {
       }
     }
   }, [searchParams])
+
+  // Enviar dados de qualificacao para ActiveCampaign
+  useEffect(() => {
+    if (data && !hasSubmittedRef.current) {
+      hasSubmittedRef.current = true
+
+      // Determinar nivel de dor baseado no percentual
+      const nivelDor: 'baixo' | 'medio' | 'alto' =
+        data.percentual <= 30 ? 'baixo' :
+        data.percentual <= 50 ? 'medio' : 'alto'
+
+      // Encontrar atividade com mais horas (principal ralo)
+      const principalRalo = Object.entries(data.atividades)
+        .sort(([, a], [, b]) => b - a)[0]?.[0] || 'duvidas'
+
+      submitResult({
+        email: data.email,
+        horasPerdidasSemana: data.horasOperacionais,
+        custoAnualEstimado: data.custoAnual,
+        principalRalo,
+        nivelDor,
+        percentualTempo: data.percentual,
+        valorHora: data.valorHora,
+        atividades: data.atividades
+      })
+    }
+  }, [data, submitResult])
 
   // Animate cost number
   useEffect(() => {
@@ -481,7 +516,7 @@ export default function ResultadoPage() {
       <footer className="py-8 px-6 border-t border-gray-200 text-center bg-white-pure">
         <div className="flex items-center justify-center gap-2 mb-2">
           <LogoDiamante className="w-6 h-6 text-black-pure" />
-          <span className="text-sm font-medium text-black-deep">Academia Lendár[IA]</span>
+          <span className="text-sm font-medium text-black-deep">Academia Lendária</span>
         </div>
         <p className="text-sm text-gray-400">
           Transformando empresários em lendas.

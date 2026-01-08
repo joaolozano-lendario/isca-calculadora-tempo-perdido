@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Clock, MessageCircle, Flame, UserMinus, ArrowRight, Calculator, User, Mail, Phone, Briefcase, Building2, Loader2 } from 'lucide-react'
+import { Clock, MessageCircle, Flame, UserMinus, ArrowRight, Calculator, User, Mail, Phone, Briefcase, Building2, Loader2, PieChart, Zap } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import { useLeadCapture, useLocalLeadCapture } from '../hooks/useLeadCapture'
 import { heroContent, painPoints, socialProof } from '../data/content'
@@ -12,6 +12,11 @@ const iconMap = {
   userMinus: UserMinus
 }
 
+const proofIconMap = {
+  pieChart: PieChart,
+  clock: Clock,
+  zap: Zap
+}
 // Logo SVG component
 const LogoDiamante = ({ className = "w-12 h-12" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,28 +74,38 @@ export default function CapturaPage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white-soft mb-8">
             <Calculator className="w-4 h-4 text-gray-500" />
-            <span className="text-sm text-gray-600">Calculadora Gratuita</span>
+            <span className="text-sm text-gray-600">{heroContent.preHeadline}</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-black-pure">
-            Você trabalha 12 horas por dia.
-            <br /><span className="text-gray-400">Sua empresa fatura o mesmo.</span><br />
-            <span className="text-gray-500">trabalho de funcionário?</span>
+          {/* Headline with Narrative Arc */}
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-black-pure">
+            {heroContent.headline.split('. ')[0]}.
+            <br />
+            <span className="text-gray-400">{heroContent.headline.split('. ')[1]}</span>
           </h1>
 
+          {/* Tension Line */}
+          <p className="text-xl md:text-2xl text-gray-500 mb-4 font-medium">
+            {heroContent.tensionLine}
+          </p>
+
+          {/* The Big Question */}
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black-pure mb-8">
+            {heroContent.headlineQuestion}
+          </h2>
+
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-500 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto">
             {heroContent.subheadline}
           </p>
 
           {/* CTA Button */}
           <button
             onClick={() => document.getElementById('captura')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-black-pure text-white-pure font-semibold rounded-lg hover:bg-black-deep transition-all"
+            className="group inline-flex items-center gap-3 px-10 py-5 bg-black-pure text-white-pure text-lg font-semibold rounded-lg hover:bg-black-deep transition-all shadow-lg"
           >
             {heroContent.cta}
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
@@ -193,39 +208,48 @@ export default function CapturaPage() {
         </div>
       </section>
 
-      {/* Social Proof */}
+      {/* Social Proof - Research Stats */}
       <section
         ref={proofSection.ref}
         className="py-24 px-6 border-t border-gray-100 bg-white-soft"
       >
         <div className="max-w-5xl mx-auto">
           <h2
-            className={`text-2xl md:text-3xl font-bold text-center mb-16 text-black-pure transition-all duration-700 ${
+            className={`text-2xl md:text-3xl font-bold text-center mb-4 text-black-pure transition-all duration-700 ${
               proofSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            Quem calculou, agiu.
+            {socialProof.headline}
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {socialProof.map((proof, index) => (
-              <div
-                key={proof.author}
-                className={`p-6 rounded-lg border border-gray-200 bg-white-pure transition-all duration-500 ${
-                  proofSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDelay: `${100 + index * 100}ms` }}
-              >
-                <blockquote className="text-gray-600 mb-4 italic font-serif quote-text">
-                  "{proof.quote}"
-                </blockquote>
-                <div>
-                  <div className="font-semibold text-black-deep">{proof.author}</div>
-                  <div className="text-sm text-gray-400">{proof.role}</div>
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {socialProof.stats.map((stat, index) => {
+              const Icon = proofIconMap[stat.icon as keyof typeof proofIconMap]
+              return (
+                <div
+                  key={stat.percentage}
+                  className={`p-8 rounded-lg border border-gray-200 bg-white-pure text-center transition-all duration-500 ${
+                    proofSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: `${100 + index * 100}ms` }}
+                >
+                  <div className="inline-flex p-3 rounded-full bg-gray-100 text-gray-600 mb-4">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div className="text-5xl font-bold text-black-pure mb-3">{stat.percentage}</div>
+                  <p className="text-gray-500">{stat.description}</p>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
+
+          <p
+            className={`text-center text-lg text-gray-600 mt-12 font-medium transition-all duration-700 delay-500 ${
+              proofSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            {socialProof.conclusion}
+          </p>
         </div>
       </section>
 
@@ -343,7 +367,7 @@ export default function CapturaPage() {
               ) : (
                 <>
                   Calcular
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </button>
@@ -359,7 +383,7 @@ export default function CapturaPage() {
       <footer className="py-8 px-6 border-t border-gray-200 text-center bg-white-pure">
         <div className="flex items-center justify-center gap-2 mb-2">
           <LogoDiamante className="w-6 h-6 text-black-pure" />
-          <span className="text-sm font-medium text-black-deep">Academia Lendár[IA]</span>
+          <span className="text-sm font-medium text-black-deep">Academia Lendária</span>
         </div>
         <p className="text-sm text-gray-400">
           Transformando empresários em lendas.
