@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Clock, MessageCircle, Flame, UserMinus, ArrowRight, Calculator, User, Mail, Phone, Briefcase, Building2, Loader2, PieChart, Zap } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import { useLeadCapture, useLocalLeadCapture } from '../hooks/useLeadCapture'
 import { heroContent, painPoints, socialProof } from '../data/content'
 import { Footer } from '../components/Footer'
+import { getPersistedLead, saveLeadToStorage } from '../utils/leadPersistence'
 
 const iconMap = {
   clock: Clock,
@@ -32,6 +33,17 @@ export default function CapturaPage() {
   const [whatsapp, setWhatsapp] = useState('')
   const [cargo, setCargo] = useState('')
   const [empresa, setEmpresa] = useState('')
+
+  // Carrega dados persistidos ao montar (localStorage ou URL params)
+  useEffect(() => {
+    const persisted = getPersistedLead()
+    if (persisted) {
+      if (persisted.nome) setNome(persisted.nome)
+      if (persisted.email) setEmail(persisted.email)
+      if (persisted.whatsapp) setWhatsapp(persisted.whatsapp)
+    }
+  }, [])
+
   const heroSection = useInView({ threshold: 0.1 })
   const painSection = useInView({ threshold: 0.1 })
   const questionSection = useInView({ threshold: 0.1 })
@@ -54,6 +66,14 @@ export default function CapturaPage() {
     e.preventDefault()
     if (email && nome) {
       await submitLead({ nome, email, whatsapp, cargo, empresa })
+
+      // Persiste dados do lead para cross-sell entre iscas
+      saveLeadToStorage({
+        nome,
+        email,
+        whatsapp,
+        lastIsca: 'calculadora-tempo-perdido'
+      })
     }
   }
 
