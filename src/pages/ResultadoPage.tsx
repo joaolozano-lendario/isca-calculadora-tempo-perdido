@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import {
   AlertTriangle,
@@ -13,7 +13,10 @@ import {
   Flame,
   Brain,
   Zap,
-  Calendar
+  Calendar,
+  Moon,
+  Gift,
+  Shield
 } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import { useResultSubmit, useLocalResultSubmit } from '../hooks/useResultSubmit'
@@ -482,32 +485,120 @@ export default function ResultadoPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Imersao Enriquecido */}
       <section
         ref={actionSection.ref}
         className="py-24 px-6 bg-black-pure text-white-pure"
       >
-        <div
-          className={`max-w-2xl mx-auto text-center transition-all duration-700 ${
-            true ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <LogoDiamante className="w-16 h-16 mx-auto mb-8 text-white-pure" />
-
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">{cta.title}</h2>
-          <p className="text-gray-400 mb-8 text-lg">{cta.description}</p>
-
-          <a
-            href={cta.buttonUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-white-pure text-black-pure font-semibold rounded-lg hover:bg-gray-100 transition-all"
+        <div className="max-w-4xl mx-auto">
+          {/* Contexto Narrativo */}
+          <div
+            className={`text-center mb-12 transition-all duration-700 ${
+              actionSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
           >
-            {cta.buttonText}
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+            <p className="text-gray-400 text-lg mb-3">{cta.contexto.preTitle}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white-pure">
+              {cta.contexto.title}
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
+              {cta.contexto.subtitle}
+            </p>
+            <div className="max-w-2xl mx-auto">
+              <p className="text-gray-500 mb-2">{cta.ponte.principal}</p>
+              <p className="text-white-pure font-medium">{cta.ponte.prova}</p>
+            </div>
+          </div>
 
-          <p className="text-sm text-gray-500 mt-6">
+          {/* Card do Evento */}
+          <div
+            className={`bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden mb-8 transition-all duration-700 delay-200 ${
+              actionSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            {/* Header */}
+            <div className="p-8 border-b border-gray-800 text-center">
+              <span className="inline-block px-4 py-2 bg-white-pure text-black-pure text-sm font-bold rounded-lg mb-4">
+                {cta.preco.badge}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold text-white-pure mb-2">
+                {cta.evento.badge}
+              </h3>
+              <p className="text-gray-400">{cta.evento.data}</p>
+              <p className="text-gray-500 text-sm mt-1">{cta.evento.formato}</p>
+            </div>
+
+            {/* O que inclui */}
+            <div className="p-8 border-b border-gray-800">
+              <h4 className="text-lg font-semibold text-gray-400 uppercase tracking-wider mb-6 text-center">
+                {cta.oqueinclui.titulo}
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                {cta.oqueinclui.itens.map((item, idx) => {
+                  const iconMap: Record<string, React.ReactNode> = {
+                    Users: <Users className="w-6 h-6" />,
+                    Zap: <Zap className="w-6 h-6" />,
+                    Moon: <Moon className="w-6 h-6" />,
+                    Gift: <Gift className="w-6 h-6" />
+                  }
+                  return (
+                    <div key={idx} className="p-4 bg-black-pure/40 rounded-xl border border-gray-800">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-white-pure/10 flex items-center justify-center flex-shrink-0 text-white-pure">
+                          {iconMap[item.icone]}
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-white-pure mb-1">{item.titulo}</h5>
+                          <p className="text-gray-400 text-sm">{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Preco e CTA */}
+            <div className="p-8 bg-black-pure/50">
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-4 mb-2">
+                  <span className="text-gray-500 line-through text-2xl">{cta.preco.de}</span>
+                  <span className="text-5xl font-bold text-white-pure">{cta.preco.por}</span>
+                </div>
+                <p className="text-gray-400">ou {cta.preco.parcelas}</p>
+                <p className="text-green-400 text-sm mt-1">{cta.preco.economia}</p>
+              </div>
+
+              <a
+                href={cta.buttonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full max-w-md mx-auto px-8 py-5 bg-white-pure text-black-pure font-bold rounded-xl hover:bg-gray-100 transition-all text-lg text-center shadow-2xl shadow-white-pure/10"
+              >
+                {cta.buttonText}
+                <ArrowRight className="w-5 h-5 inline ml-2" />
+              </a>
+
+              <p className="text-gray-500 text-sm mt-4 text-center">
+                {cta.urgencia.texto} · {cta.urgencia.subtexto}
+              </p>
+            </div>
+          </div>
+
+          {/* Garantia */}
+          <div
+            className={`text-center p-6 rounded-xl border border-gray-800 bg-gray-900/50 transition-all duration-700 delay-300 ${
+              actionSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="w-12 h-12 rounded-full bg-white-pure/10 flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-6 h-6 text-white-pure" />
+            </div>
+            <h4 className="text-white-pure font-semibold mb-2">{cta.garantia.titulo}</h4>
+            <p className="text-gray-400 text-sm max-w-lg mx-auto">{cta.garantia.texto}</p>
+          </div>
+
+          <p className="text-sm text-gray-600 mt-8 text-center">
             Resultado salvo para: {data.email}
           </p>
         </div>

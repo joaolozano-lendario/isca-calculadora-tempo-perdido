@@ -159,12 +159,63 @@ export const framework = {
 }
 
 
-// CTA Principal - Conecta a Imersão de IA
+// CTA Principal - Conecta a Imersão de IA (Enriquecido)
 export const cta = {
-  title: 'E se você recuperasse esse tempo em 48 horas?',
-  description: 'Na Imersão Pratica de IA para Negocios, nosso time de especialistas implementa automações no seu negócio — junto com você. Sistema funcionando ou dinheiro de volta.',
-  buttonText: 'QUERO IMPLEMENTAR IA NO MEU NEGOCIO',
-  buttonUrl: 'https://imersao.academialendaria.ai/?utm_source=calculadora&utm_medium=lp&utm_content=cta-resultado&utm_campaign=imersao-jan26&src=calculadora_lp'
+  // Contexto narrativo - reconhece o valor ja entregue
+  contexto: {
+    preTitle: 'Voce ja sabe o custo.',
+    title: 'E se voce recuperasse esse tempo em 48 horas?',
+    subtitle: 'Com especialistas ao seu lado, implementando automacoes no SEU negocio.'
+  },
+
+  // Ponte emocional
+  ponte: {
+    principal: 'Sozinho, voce pode levar meses tentando. Com nosso time, voce sai no domingo com sistema funcionando.',
+    prova: 'Na ultima turma, 94% dos participantes sairam com pelo menos 1 automacao rodando.'
+  },
+
+  // Evento
+  evento: {
+    badge: 'IMERSAO PRATICA DE IA PARA NEGOCIOS',
+    data: '24 e 25 de Janeiro de 2026',
+    formato: 'Online ao vivo | Sabado e Domingo | 09h-18h'
+  },
+
+  // O que inclui
+  oqueinclui: {
+    titulo: 'O que voce leva:',
+    itens: [
+      { icone: 'Users', titulo: 'Time de Especialistas', desc: 'Implementando COM voce, em tempo real' },
+      { icone: 'Zap', titulo: 'Sistema Funcionando', desc: 'Saia com automacoes rodando de verdade' },
+      { icone: 'Moon', titulo: 'Sessao de Implementacao', desc: 'Atendimento por especialidade (Conversacional, Criacao, Dados)' },
+      { icone: 'Gift', titulo: 'Materiais Completos', desc: 'Gravacoes + templates + certificado' }
+    ]
+  },
+
+  // Preco
+  preco: {
+    de: 'R$ 697',
+    por: 'R$ 348',
+    parcelas: '12x R$ 33,80',
+    economia: 'Economia de R$ 349',
+    badge: 'EARLY BIRD'
+  },
+
+  // CTA
+  buttonText: 'QUERO IMPLEMENTAR EM 48 HORAS',
+  buttonUrl: 'https://imersao.academialendaria.ai/?utm_source=calculadora&utm_medium=lp&utm_content=cta-resultado&utm_campaign=imersao-jan26&src=calculadora_lp',
+
+  // Urgencia
+  urgencia: {
+    texto: 'Early Bird ate 14/Jan',
+    subtexto: 'Depois sobe para R$ 368'
+  },
+
+  // Garantia
+  garantia: {
+    titulo: 'Garantia de Implementacao',
+    texto: 'Se voce participar dos 2 dias e NAO sair com sistema funcionando, devolvemos 100% do seu investimento.'
+  }
 }
 
 // Social Proof - Dados REAIS da pesquisa (98 empresários)

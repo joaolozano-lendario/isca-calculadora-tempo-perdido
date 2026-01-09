@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react'
-
 // Diamond Logo - Lendaria Brand
 function DiamondLogo({ className = "w-12 h-12", fill = "#000000" }: { className?: string; fill?: string }) {
   return (
@@ -15,30 +13,6 @@ const IMERSAO_URL = 'https://imersao.academialendaria.ai/?utm_source=calculadora
 export function Footer() {
   return (
     <footer className="bg-black-pure text-white-pure">
-      {/* CTA Destacado da Imersao */}
-      <div className="border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-12 text-center">
-          <span className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-sm font-medium mb-4">
-            Proximo Passo
-          </span>
-          <h3 className="text-2xl md:text-3xl font-bold mb-3">
-            Quer implementar IA no seu negocio com acompanhamento?
-          </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Participe da Imersao Pratica de IA para Negocios e saia com automacoes funcionando.
-          </p>
-          <a
-            href={IMERSAO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white-pure text-black-pure font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            Conhecer a Imersao
-            <ArrowRight className="w-5 h-5" />
-          </a>
-        </div>
-      </div>
-
       {/* Footer Principal */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         {/* Footer Grid - 4 colunas principais + coluna de redes */}
